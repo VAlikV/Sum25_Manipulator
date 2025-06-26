@@ -10,7 +10,7 @@
 // #include "logger/jarraylogger.hpp"
 #include "udp/udp_server.hpp"
 #include "kukafri/helper_functions.hpp"
-#include "func.hpp
+#include "func.hpp"
 
 using namespace KUKA_CONTROL;
 using namespace server;
@@ -82,8 +82,8 @@ int main(int argc, char **argv)
         }
         else
         {
-            delta = getDelta(next_point, current_point); // Реализовать эту функцию в func.hpp
-            temp = temp + delta;
+            dq = getDelta(next_point, current_point); // Реализовать эту функцию в func.hpp
+            temp = temp + dq;
             
             kuka.<Задание углов куки>;
 
