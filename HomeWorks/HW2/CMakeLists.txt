@@ -54,6 +54,7 @@ set(SOURCES
 
 	# Сюда сорцы
 	${SERVER}/udp_server.hpp			${SERVER}/udp_server.cpp
+	${SERVER}/json.hpp
 	${LOCKFREE}/lockfree.hpp
 	func.hpp
 )
@@ -64,7 +65,7 @@ find_library(FRI_LIB libFRIClient NAMES libFRIClient FRIClient HINTS deps/lib RE
 # Control
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 # find_package(pinocchio REQUIRED)
-find_package(nlohmann_json 3.11.3 REQUIRED)
+# find_package(nlohmann_json 3.11.3 REQUIRED)
 
 message("-- FRI library found in: ${FRI_LIB}")
 
@@ -86,7 +87,7 @@ target_link_libraries(${PROJECT}
     ${FRI_LIB}
 	${Boost_LIBRARIES}
 	Threads::Threads
-	nlohmann_json::nlohmann_json
+	# nlohmann_json::nlohmann_json
 	
   	# Control
 	# ${OpenBLAS_LIB}
