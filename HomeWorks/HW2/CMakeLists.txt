@@ -77,7 +77,7 @@ endif()
 
 find_package(Threads REQUIRED)
 
-find_package(nlohmann_json REQUIRED)
+# find_package(nlohmann_json REQUIRED)
 
 add_executable(${PROJECT}
     ${SOURCES}
@@ -95,7 +95,7 @@ target_link_libraries(${PROJECT}
     # ${FORTRUN}
     Eigen3::Eigen
     # pinocchio::pinocchio
-    nlohmann_json::nlohmann_json
+    # nlohmann_json::nlohmann_json
 )
 
 target_include_directories(${PROJECT} PUBLIC
