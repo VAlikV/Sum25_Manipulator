@@ -14,7 +14,7 @@ results = model(img)[0]  # Берём первый результат из сп�
 
 # Получаем информацию о классах
 class_names = model.names  # Словарь: {id: 'label'}
-
+print(class_names)
 # Рисуем bounding boxes
 for box in results.boxes:
     x1, y1, x2, y2 = map(int, box.xyxy[0])  # координаты прямоугольника
