@@ -64,8 +64,6 @@ find_library(FRI_LIB libFRIClient NAMES libFRIClient FRIClient HINTS deps/lib RE
 
 # Control
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
-# find_package(pinocchio REQUIRED)
-# find_package(nlohmann_json 3.11.3 REQUIRED)
 
 message("-- FRI library found in: ${FRI_LIB}")
 
@@ -76,8 +74,6 @@ if(Boost_FOUND)
 endif()
 
 find_package(Threads REQUIRED)
-
-# find_package(nlohmann_json REQUIRED)
 
 add_executable(${PROJECT}
     ${SOURCES}
