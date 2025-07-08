@@ -31,7 +31,9 @@ class Control:
         new_position = position.copy()
         copy_image = image.copy()
 
-        results = self.model_(image)[0]  # Берём первый результат из списка
+        print(self.class_names_[0])
+
+        results = self.model_(image, classes=[0])[0]  # Берём первый результат из списка
         # results = model(img, classes=[0])[0]  # только класс "person"
 
         max_conf = 0
@@ -48,6 +50,7 @@ class Control:
 
             # Рисуем прямоугольник
             cv2.rectangle(copy_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
+            cv2.circle(copy_image, ((x1+x2)//2, (y1+y2)//2), 3, (255,0,0), 3)
             
             if conf > max_conf:
                 max_conf = conf
@@ -59,7 +62,7 @@ class Control:
             cv2.putText(copy_image, label, (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
         
         if detected:
-            new_position[0] += (bb_center[0] - image.shape[0])/5000
-            new_position[1] += (bb_center[1] - image.shape[1])/5000
+            new_position[0] -= (bb_center[1] - image.shape[1]//2)/5000
+            new_position[1] -= (bb_center[0] - image.shape[0]//2)/5000
         
         return copy_image, new_position

@@ -9,9 +9,9 @@ position = np.array([0.55, 0.0, 0.63, 1.0, 0.0, 0.0,
 old_position = position.copy()
 eps = np.array([0.00001, 0.00001, 0.00001])
 
-udp = UDPSender("192.168.1.2", 8083)
+udp = UDPSender("127.0.0.1", 8083)
 
-udp.sendMessage("192.168.1.3", 8082, position)
+udp.sendMessage("127.0.0.1", 8081, position)
 
 detection = Control('yolov8n.pt')
 
@@ -34,7 +34,7 @@ while cap.isOpened():
     
     if np.abs(position[0:3] - old_position[0:3]).any() >= eps.any():
 
-        udp.sendMessage("192.168.1.3", 8082, position)
+        udp.sendMessage("127.0.0.1", 8081, position)
         old_position = position.copy()
     
     cv2.waitKey(1)
