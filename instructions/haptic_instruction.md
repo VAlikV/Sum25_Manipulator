@@ -56,3 +56,9 @@ sudo chmod 777 /dev/ttyACM0
 sudo Touch_HeadlessSetup
 ```
 ### Готово
+
+### Может понадобиться
+
+```bash
+sudo apt-get install libncurses5
+```
